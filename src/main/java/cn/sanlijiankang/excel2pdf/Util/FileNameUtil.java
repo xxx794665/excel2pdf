@@ -25,7 +25,7 @@ public class FileNameUtil {
      * @param fileName 文件目录
      * @return String 文件名后缀
      */
-    public static String getFileSufix(String fileName) {
+    public static String getFileSuffix(String fileName) {
         if(fileName == null || "".equals(fileName)){
             return null;
         }

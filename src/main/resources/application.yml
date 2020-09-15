@@ -1,0 +1,11 @@
+#Port
+Server:
+  port: 29100
+
+#Jodconverter Configuration
+jodconverter:
+  local:
+    enabled: true
+    officeHome: D:/OpenOffice
+    portNumbers: 18100
+    maxTasksPerProcess: 10

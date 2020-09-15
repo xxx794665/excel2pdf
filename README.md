@@ -1,1 +1,5 @@
 # excel2pdf
+
+通过JodConverter和OpenOffice来进行文件格式转化
+
+application.yml中配置OpenOffice安装地址

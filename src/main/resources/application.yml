@@ -2,6 +2,13 @@
 Server:
   port: 29100
 
+#Spring Config
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static
+
 #Jodconverter Configuration
 jodconverter:
   local:

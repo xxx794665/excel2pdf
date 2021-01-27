@@ -13,6 +13,6 @@ spring:
 jodconverter:
   local:
     enabled: true
-    officeHome: C:/OpenOffice 4
+    officeHome: C:/LibreOffice
     portNumbers: 18100
     maxTasksPerProcess: 10

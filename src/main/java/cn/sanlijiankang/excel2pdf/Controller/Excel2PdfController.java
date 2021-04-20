@@ -26,17 +26,22 @@ public class Excel2PdfController {
     private DocumentConverter documentConverter;
 
     @PostMapping(value = "transfer")
-    public HttpResult transferExcel2Pdf(@RequestParam String xlsFileName) throws  OfficeException {
-        String path = FileNameUtil.getFilePrefix(xlsFileName);
-        String fileType = FileNameUtil.getFileSuffix(xlsFileName);
-        //测试转换pdf
-        String pdfFileName = path + ".pdf";
-        long startTime = System.currentTimeMillis();
-        File in = new File(xlsFileName);
-        File out = new File(pdfFileName);
-        documentConverter.convert(in).to(out).execute();
-        long covertTime = System.currentTimeMillis() - startTime;
-        logger.info(String.format("successful convert:%s to %s in %dms", xlsFileName, "pdf", covertTime));
-        return HttpResult.ok(out.getName());
+    public HttpResult transferExcel2Pdf(@RequestParam String xlsFileName) throws OfficeException {
+        try {
+            String path = FileNameUtil.getFilePrefix(xlsFileName);
+            String fileType = FileNameUtil.getFileSuffix(xlsFileName);
+            //测试转换pdf
+            String pdfFileName = path + ".pdf";
+            long startTime = System.currentTimeMillis();
+            File in = new File(xlsFileName);
+            File out = new File(pdfFileName);
+            documentConverter.convert(in).to(out).execute();
+            long covertTime = System.currentTimeMillis() - startTime;
+            logger.info(String.format("successful convert:%s to %s in %dms", xlsFileName, "pdf", covertTime));
+            return HttpResult.ok(out.getName());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return HttpResult.error(xlsFileName + ":transferFail");
     }
 }

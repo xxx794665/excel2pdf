@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.sanlijiankang.</groupId>
     <artifactId>excel2pdf</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
     <name>excel2pdf</name>
     <description>excel2pdf project for Spring Boot</description>
@@ -63,17 +63,17 @@
         <dependency>
             <groupId>org.jodconverter</groupId>
             <artifactId>jodconverter-local</artifactId>
-            <version>4.3.0</version>
+            <version>4.4.2</version>
         </dependency>
         <dependency>
             <groupId>org.jodconverter</groupId>
             <artifactId>jodconverter-spring-boot-starter</artifactId>
-            <version>4.3.0</version>
+            <version>4.4.2</version>
         </dependency>
         <dependency>
             <groupId>org.jodconverter</groupId>
             <artifactId>jodconverter-core</artifactId>
-            <version>4.3.0</version>
+            <version>4.4.2</version>
         </dependency>
     </dependencies>
 

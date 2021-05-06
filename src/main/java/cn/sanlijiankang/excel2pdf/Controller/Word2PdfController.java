@@ -30,17 +30,21 @@ public class Word2PdfController {
 
     @PostMapping(value = "transfer")
     public HttpResult transferExcel2Pdf(@RequestParam String docFileName) throws OfficeException {
-        String path = FileNameUtil.getFilePrefix(docFileName);
-        String fileType = FileNameUtil.getFileSuffix(docFileName);
-        //测试转换pdf
-        String pdfFileName = path + ".pdf";
-        long startTime = System.currentTimeMillis();
-        File in = new File(docFileName);
-        File out = new File(pdfFileName);
-        documentConverter.convert(in).to(out).execute();
-        long covertTime = System.currentTimeMillis() - startTime;
-        logger.info(String.format("successful convert:%s to %s in %dms", docFileName, "pdf", covertTime));
-        int startIndex = pdfFileName.indexOf("static/");
-        return HttpResult.ok(pdfFileName.substring(startIndex));
+        try {
+            String path = FileNameUtil.getFilePrefix(docFileName);
+            String fileType = FileNameUtil.getFileSuffix(docFileName);
+            //测试转换pdf
+            String pdfFileName = path + ".pdf";
+            long startTime = System.currentTimeMillis();
+            File in = new File(docFileName);
+            File out = new File(pdfFileName);
+            documentConverter.convert(in).to(out).execute();
+            long covertTime = System.currentTimeMillis() - startTime;
+            logger.info(String.format("successful convert:%s to %s in %dms", docFileName, "pdf", covertTime));
+            return HttpResult.ok(out.getName());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return HttpResult.error(docFileName + ":transferFail");
     }
 }

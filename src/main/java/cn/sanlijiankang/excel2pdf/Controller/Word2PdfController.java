@@ -41,7 +41,7 @@ public class Word2PdfController {
             documentConverter.convert(in).to(out).execute();
             long covertTime = System.currentTimeMillis() - startTime;
             logger.info(String.format("successful convert:%s to %s in %dms", docFileName, "pdf", covertTime));
-            int startIndex = pdfFileName.indexOf("static/");
+            int startIndex = pdfFileName.indexOf("static");
             return HttpResult.ok(pdfFileName.substring(startIndex));
         } catch (Exception ex) {
             ex.printStackTrace();

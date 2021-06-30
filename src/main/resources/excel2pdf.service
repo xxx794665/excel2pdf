@@ -1,0 +1,17 @@
+[Unit]
+Description=excel2pdf
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/etc/apps/excel2pdf/bin/startup.sh
+ExecStop=/usr/local/etc/apps/excel2pdf/bin/shutdown.sh
+ExecReload=/usr/local/etc/apps/excel2pdf/bin/catalina.sh restart
+User=ubuntu
+WorkingDirectory=/usr/local/etc/apps/excel2pdf/
+Restart=on-failure
+RestartSec=3
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target

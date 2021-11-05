@@ -29,8 +29,9 @@ public class Word2PdfController {
     private DocumentConverter documentConverter;
 
     @PostMapping(value = "transfer")
-    public HttpResult transferExcel2Pdf(@RequestParam String docFileName) {
+    public HttpResult transferWord2Pdf(@RequestParam String docFileName) {
         try {
+//            logger.info("transferWord2Pdf入参：{}", docFileName);
             String path = FileNameUtil.getFilePrefix(docFileName);
             String fileType = FileNameUtil.getFileSuffix(docFileName);
             //测试转换pdf

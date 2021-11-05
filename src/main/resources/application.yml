@@ -6,8 +6,9 @@ Server:
 spring:
   mvc:
     static-path-pattern: /static/**
-  resources:
-    static-locations: classpath:/static
+  web:
+    resources:
+      static-locations: classpath:/static
 
 #Jodconverter Configuration
 jodconverter:

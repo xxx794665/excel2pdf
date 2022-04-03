@@ -1,6 +1,6 @@
 #Port
 Server:
-  port: 29102
+  port: 19102
 
 #Spring Config
 spring:

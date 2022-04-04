@@ -40,6 +40,7 @@ public class Excel2PdfController {
             logger.info(String.format("successful convert:%s to %s in %dms", xlsFileName, "pdf", covertTime));
             return HttpResult.ok(out.getName());
         } catch (Exception ex) {
+            logger.error("转换pdf失败，xlsFileName:{}", xlsFileName);
             ex.printStackTrace();
         }
         return HttpResult.error(xlsFileName + ":transferFail");

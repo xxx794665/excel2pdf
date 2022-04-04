@@ -15,5 +15,5 @@ jodconverter:
   local:
     enabled: true
     officeHome: C:/LibreOffice
-    portNumbers: 18100,18102
+    portNumbers: 18100,18102,18104,18106,18108,18110,18112,18114,18116,18118,18120
     maxTasksPerProcess: 1000
